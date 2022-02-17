@@ -15,7 +15,7 @@ function validaDataNascimento(input) {
     input.setCustomValidity(mensagem);   
 }
 
-function maiorque18(data) {
+function maiorQue18(data) {
     const dataAtual = new Date();  //date() é automaticamente preenchido com a data atual
     const dataMais18 = new Date(data.getUTCFullYear() + 18, data.getUTCMonth(), data.getUTCDate());
 
