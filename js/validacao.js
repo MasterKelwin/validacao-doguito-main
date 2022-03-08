@@ -3,10 +3,7 @@ export function valida(input) {
 
     if(validadores[tipoDeInput]) {
         validadores[tipoDeInput](input)
-    }
-
-
-    
+    }    
 }
 
 const validadores = {
