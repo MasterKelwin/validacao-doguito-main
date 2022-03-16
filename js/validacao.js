@@ -72,8 +72,15 @@ const mensagensDeErro = {
 }
 
 const tiposDeErro = [
-    'valueMissing',
-    'typeMismatch',
+    'badInput',
+    'customError',
     'patternMismatch',
-    'customError'
+    'rangeOverflow',
+    'rangeUnderflow',
+    'stepMismatch',
+    'tooLong',
+    'tooShort',
+    'typeMismatch',
+    'valid',
+    'valueMissing'
 ]
