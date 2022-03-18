@@ -16,7 +16,8 @@ export function valida(input) {
 
 const validadores = {
     dataNascimento:input => validaDataNascimento(input),
-    cpf:input => validaCPF(input)
+    cpf:input => validaCPF(input),
+    cep:input => recuperarCEP(input)
 }
 
 const mensagensDeErro = {
@@ -47,6 +48,14 @@ const mensagensDeErro = {
     cep: {
         valueMissing: 'O campo de CEP não pode estar vazio',
         patternMismatch: 'O cep digitado não é válido'
+    },
+
+    cidade: {
+        valueMissing: 'O campo cidade não pode estar vazio'
+    },
+
+    estado: {
+        valueMissing: 'O campo estado não pode estar vazio'
     }
 }
 
@@ -158,4 +167,26 @@ function checaDigitoVerificador(cpf, multiplicador) {
 
 function confirmaDigito(soma) {
     return 11 - (soma % 11)
+}
+
+function recuperarCEP(input) {
+    const cep = input.value.replace(/\D/g, '')  //substituir tudo que não for números para nada.
+    const url = `https://viacep.com.br/ws/${cep}/json/`
+    const options = {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'content-type': 'application/json;charset=utf-8'
+        }
+    }
+
+    if(!input.validity.patternMismatch && !input.validity.valueMissing) {
+        fetch(url,options).then(
+            response => response.json()
+        ).then(
+            data => {
+                console.log(data)
+            }
+        )
+    }
 }
