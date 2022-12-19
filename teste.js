@@ -35,3 +35,5 @@ class LivroColecao extends Livro {
 const logicaDeProgramacao = new LivroColecao("Logica de Programação", "Comece a programar")
 
 logicaDeProgramacao.descreverColecao()
+
+@testDirectCommit
